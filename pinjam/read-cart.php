@@ -14,7 +14,8 @@ function read()
             $i++;
         }
         echo "</table>";
-        echo "<a href='../fitur.php'>CARI</a>";
+        echo "<a href='../fitur.php'>CARI</a> <br>";
+        echo "<a href='pinjam.php?fitur=save'>SIMPAN</a>";
     }
 }
 ?>

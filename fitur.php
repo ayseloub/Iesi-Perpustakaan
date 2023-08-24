@@ -1,3 +1,5 @@
+<html>
+    <body>
 <?php
 include "cari.php";
 $fitur = $_GET['fitur'] ?? null;
@@ -13,3 +15,5 @@ switch ($fitur) {
         break;
 }
 ?>
+    </body>
+</html>

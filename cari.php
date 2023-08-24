@@ -14,11 +14,19 @@ function cari($keyword)
 }
 function display($listbuku)
 {
-    echo "<table border=1>";
-    echo "<tr><td>ID</td><td> Judul </td></tr>";
+    echo "<br><table border=1 style='width:50%'>";
+    echo "<tr><th style='width:10%'>ID</th><th style='width:60%'> Judul </th><th></th></tr>";
     foreach ($listbuku as $row) {
-       echo "<tr><td>$row[0]</td><td> $row[1] </td><td><a href='./pinjam/pinjam.php?fitur=add&idbuku=$row[0]&judul=$row[1]'>pinjam</td></tr>";
+       echo "<tr><td style='text-align: center;'>$row[0]</td><td> $row[1] </td><td style='text-align: center;'><a href='./pinjam/pinjam.php?fitur=add&idbuku=$row[0]&judul=$row[1]'>pinjam</td></tr>";
     }
     echo "</table>";
+
 }
 ?>
+
+<form method=get >
+<input type='text' name="keyword"/>
+<input type='submit' value="CARI"/>
+</form>
+<a href='./pinjam/pinjam.php?fitur=read'>Lihat Keranjang</a>
+<br>
