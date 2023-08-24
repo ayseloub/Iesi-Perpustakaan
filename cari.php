@@ -17,7 +17,7 @@ function display($listbuku)
     echo "<table border=1>";
     echo "<tr><td>ID</td><td> Judul </td></tr>";
     foreach ($listbuku as $row) {
-       echo "<tr><td>$row[0]</td><td> $row[1] </td></tr>";
+       echo "<tr><td>$row[0]</td><td> $row[1] </td><td><a href='./pinjam/pinjam.php?fitur=add&idbuku=$row[0]&judul=$row[1]'>pinjam</td></tr>";
     }
     echo "</table>";
 }
