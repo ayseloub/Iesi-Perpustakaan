@@ -9,7 +9,7 @@ switch ($fitur) {
     case 'add':
         $idbuku = $_GET['idbuku'];
         $judul = $_GET['judul'];
-        add($idbuku,$judul);
+        add($idbuku, $judul);
         header('location:pinjam.php?fitur=read');
         break;
     case 'delete':
