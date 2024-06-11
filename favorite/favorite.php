@@ -1,7 +1,7 @@
 <?php
-include 'read-wishlist.php';
-include 'add-wishlist.php';
-include 'delete-wishlist.php';
+include 'read-favorite.php';
+include 'add-favorite.php';
+include 'delete-favorite.php';
 
 $fitur = $_GET['fitur'];
 switch ($fitur) {
@@ -12,7 +12,7 @@ switch ($fitur) {
         break;
     case 'delete':
         delete();
-        header('location:wishlist.php?fitur=read');
+        header('location:favorite.php?fitur=read');
         break;
 
     default:

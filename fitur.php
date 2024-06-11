@@ -10,7 +10,7 @@
             exit;
         case 'cari':
         case 'whislist':
-            header('location:whishlist/whislist.php?fitur=read');
+            header('location:favorite/favorite.php?fitur=read');
         default:
             $keyword = $_GET['keyword'] ?? null;
             $listbuku = cari($keyword);

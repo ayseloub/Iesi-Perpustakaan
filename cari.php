@@ -4,7 +4,7 @@ function cari($keyword)
     $link = mysqli_connect(
         "127.0.0.1",
         "root",
-        "admin123",
+        "",
         "perpustakaan"
     );
     $query =
@@ -16,22 +16,30 @@ function cari($keyword)
     mysqli_close($link);
     return $listbuku;
 }
+
 function display($listbuku)
 {
     echo "<br><table border=1 style='width:50%'>";
     echo "<tr><th style='width:10%'>ID</th><th style='width:60%'> Judul </th><th></th><th></th></tr>";
     foreach ($listbuku as $row) {
-        echo "<tr><td style='text-align: center;'>$row[0]</td><td> $row[1] </td><td style='text-align: center;'><a href='./wishlist/wishlist.php?fitur=add&idbuku=$row[0]&judul=$row[1]'>tambah wihslist</td><td style='text-align: center;'><a href='./pinjam/pinjam.php?fitur=add&idbuku=$row[0]&judul=$row[1]'>pinjam</td></tr>";
+        echo "<tr><td style='text-align: center;'>$row[0]</td><td> $row[1] </td><td style='text-align: center;'><a href='./favorite/favorite.php?fitur=add&idbuku=$row[0]&judul=$row[1]'>add Favorite</td><td style='text-align: center;'><a href='./pinjam/pinjam.php?fitur=add&idbuku=$row[0]&judul=$row[1]'>pinjam</td></tr>";
     }
     echo "</table>";
+}
 
+// Form pencarian
+echo "<form method='get'>";
+echo "<input type='text' name='keyword' />";
+echo "<input type='submit' value='CARI' />";
+echo "</form>";
+echo "<a href='./favorite/favorite.php?fitur=read'>Lihat Favorite</a>";
+echo "<a href='./pinjam/pinjam.php?fitur=read'>Lihat Keranjang</a>";
+echo "<br>";
+
+// Pemrosesan pencarian dan tampilan hasil
+if(isset($_GET['keyword'])) {
+    $keyword = $_GET['keyword'];
+    $listbuku = cari($keyword);
+    display($listbuku);
 }
 ?>
-
-<form method=get>
-    <input type='text' name="keyword" />
-    <input type='submit' value="CARI" />
-</form>
-<a href='./wishlist/wishlist.php?fitur=read'>Lihat Wishlist</a>
-<a href='./pinjam/pinjam.php?fitur=read'>Lihat Keranjang</a>
-<br>
